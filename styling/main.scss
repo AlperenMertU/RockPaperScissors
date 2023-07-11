@@ -1,0 +1,35 @@
+body {
+    background-color: black;
+}
+.container {
+    
+    .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 650px;
+    height: 650px;
+    background-color: rgb(157, 227, 134);
+        #rock {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: red;
+        }
+        #paper {
+          
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: yellow;
+        }
+        #scissors {
+            position: absolute;
+            color: white;
+            width: 25px;
+            height: 25px;
+            background-color: black;
+        }
+    }
+}
