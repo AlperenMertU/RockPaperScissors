@@ -1,35 +1,27 @@
 body {
-    background-color: black;
+    background-color: gray;
 }
-.container {
-    
-    .box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.box {
     text-align: center;
-    width: 650px;
-    height: 650px;
-    background-color: rgb(157, 227, 134);
-        #rock {
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background-color: red;
-        }
-        #paper {
-          
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background-color: yellow;
-        }
-        #scissors {
-            position: absolute;
-            color: white;
-            width: 25px;
-            height: 25px;
-            background-color: black;
-        }
+    width: 600px;
+    height: 400px;
+    background-color: aqua;
+    #rock {
+        position: relative;
+        top: 10px;
+        left: 15px;
+        background-color: blue;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+    }
+    #paper{
+      
+        position: relative;
+        background-color:yellow;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
     }
 }

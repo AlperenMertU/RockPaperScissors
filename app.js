@@ -1,31 +1,52 @@
+let box = document.querySelector(".box")
+let startBtn = document.querySelector(".start")
 let rock = document.getElementById("rock")
 let paper = document.getElementById("paper")
-let scissors = document.getElementById("scissors")
-
-setInterval(function() {
-    
-    var windowWidth = 650
-    var windowHeight = 650
-    var randomX = Math.floor(Math.random() * (windowWidth - rock.offsetWidth));
-    var randomY = Math.floor(Math.random() * (windowHeight - rock.offsetHeight));
-
-  
-
-    rock.style.left = randomX + "px";
-    rock.style.top = randomY + "px";
-  }, 1000);
+const r = {x:150, y:120, w:40, h:40, dx:5, dy:5, ani:{}, move:false}
 
 
-  setInterval(function() {
-    
-    var windowWidth = 650
-    var windowHeight = 650
-  
-    var randomX = Math.floor(Math.random() * (windowWidth - paper.offsetWidth));
-    var randomY = Math.floor(Math.random() * (windowHeight - paper.offsetHeight));
-     
-    paper.style.left = randomX + "px";
-    paper.style.top = randomY + "px";  
+box.append(rock)
+box.append(paper)
 
-  }, 1000);
+
+startBtn.addEventListener("click",()=>{
+  if (!r.move) {
+    r.ani = requestAnimationFrame(mover)
+    r.move = true
+  }else{
+    cancelAnimationFrame(r.ani)
+    r.move= false
+    }
+})
+ 
+let mover = () => {
+  if (r.x > 600-r.w || r.x < 0) {
+     r.dx *= -1
+  }
+  if (r.y > 400-r.h || r.y < 0) {
+    r.dy *= -1
+  }
+
+  r.x += r.dx
+  r.y += r.dy
+   
+  rock.style.left = `${r.x}px`
+  rock.style.top = `${r.y}px`
+  if (r.move) {
+    r.ani = requestAnimationFrame(mover)
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
