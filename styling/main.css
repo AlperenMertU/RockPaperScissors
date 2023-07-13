@@ -1,25 +1,36 @@
 body {
   background-color: gray;
+  margin: 0;
+  padding: 0;
 }
 
 .box {
+  display: flex;
   text-align: center;
   width: 600px;
   height: 400px;
   background-color: aqua;
 }
-.box #rock {
+.box .elemetz {
+  display: flex;
+}
+.box .elemetz #rock {
   position: relative;
-  top: 10px;
-  left: 15px;
   background-color: blue;
   border-radius: 50%;
   width: 40px;
   height: 40px;
 }
-.box #paper {
-  position: relative;
+.box .elemetz #paper {
+  position: absolute;
   background-color: yellow;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.box .elemetz #scissors {
+  position: relative;
+  background-color: rgb(255, 0, 0);
   width: 40px;
   height: 40px;
   border-radius: 50%;

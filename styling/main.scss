@@ -1,27 +1,38 @@
 body {
     background-color: gray;
+    margin: 0;
+    padding: 0;
 }
 
 .box {
+    display: flex;
     text-align: center;
     width: 600px;
     height: 400px;
     background-color: aqua;
-    #rock {
-        position: relative;
-        top: 10px;
-        left: 15px;
-        background-color: blue;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-    }
-    #paper{
-      
-        position: relative;
-        background-color:yellow;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
+    .elemetz {
+        display: flex;
+        #rock {
+            position: relative;
+            background-color: blue;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+        #paper {
+
+            position: absolute;
+            background-color: yellow;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+        #scissors {
+            position: relative;
+            background-color: rgb(255, 0, 0);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
     }
 }
