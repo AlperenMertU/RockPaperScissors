@@ -1,37 +1,33 @@
 body {
+  text-align: center;
   background-color: gray;
-  margin: 0;
-  padding: 0;
+  overflow: hidden;
 }
 
-.box {
+.container {
+  height: 90vh;
   display: flex;
-  text-align: center;
-  width: 600px;
-  height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+.container .box {
+  position: relative;
+  height: 385px;
+  width: 590px;
   background-color: aqua;
 }
-.box .elemetz {
-  display: flex;
-}
-.box .elemetz #rock {
-  position: relative;
-  background-color: blue;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-}
-.box .elemetz #paper {
+.container .box #rock {
   position: absolute;
-  background-color: yellow;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  padding: 0;
+  margin: 0;
 }
-.box .elemetz #scissors {
-  position: relative;
-  background-color: rgb(255, 0, 0);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+.container .box #scissors {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}
+.container .box #paper {
+  position: absolute;
+  padding: 0;
+  margin: 0;
 }/*# sourceMappingURL=main.css.map */

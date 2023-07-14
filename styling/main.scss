@@ -1,38 +1,42 @@
-body {
+body{
+    text-align: center;
     background-color: gray;
-    margin: 0;
-    padding: 0;
+    overflow: hidden;
 }
 
-.box {
-    display: flex;
-    text-align: center;
-    width: 600px;
-    height: 400px;
-    background-color: aqua;
-    .elemetz {
-        display: flex;
-        #rock {
-            position: relative;
-            background-color: blue;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-        }
-        #paper {
 
-            position: absolute;
-            background-color: yellow;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-        }
-        #scissors {
-            position: relative;
-            background-color: rgb(255, 0, 0);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
+
+
+
+.container{
+    height: 90vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    .box{
+        position: relative;
+        height:385px;
+        width: 590px;
+        background-color: aqua;
+           #rock{
+               position: absolute;
+               padding: 0;
+               margin: 0;
+               }
+               
+                 
+               #scissors{
+                position: absolute;
+                padding: 0;
+                margin: 0;
+            }
+               #paper{
+                   position: absolute;
+                   padding: 0;
+                   margin: 0;
+               }
+       
+       
     }
 }
+
