@@ -5,9 +5,9 @@ let rock = document.getElementById("rock");
 let paper = document.getElementById("paper");
 let scissors = document.getElementById("scissors");
 
-const r = { x: 150, y: 250, w: 40, h: 40, dx: 3, dy: 3, ani: {}, speed: 5, move: false };
-const s = { x: 370, y: 100, w: 40, h: 40, dx: 3, dy: 3, ani: {}, speed: 5, move: false };
-const p = { x: 200, y: 14, w: 40, h: 40, dx: 3, dy: 3, ani: {}, speed: 5, move: false };
+const r = { x: 330, y: 250, w: 40, h: 40, dx: 3, dy: 3, ani: {}, speed: 1, move: false };
+const s = { x: 50, y: 40, w: 40, h: 40, dx: 3, dy: 3, ani: {}, speed: 1, move: false };
+const p = { x: 120, y: 25, w: 40, h: 40, dx: 3, dy: 3, ani: {}, speed: 1, move: false };
 
 box.appendChild(rock)
 box.appendChild(scissors)
@@ -43,46 +43,132 @@ mavi>kırmızı
 kırmızı>sarı
 sarı>mavi
 */
-
-//sorunlardan birisi renk değişim olayı
 function kontrolEt() {
-  const red = rock.getBoundingClientRect();
-  const yellow = paper.getBoundingClientRect();
-  const blue = scissors.getBoundingClientRect();
+  const kirmizi = rock.getBoundingClientRect();
+  const sari = paper.getBoundingClientRect();
+  const mavi = scissors.getBoundingClientRect();
+
+  // kirmizi sariya dönüyor
+  if (
+    kirmizi.right >= sari.left &&
+    kirmizi.left <= sari.right &&
+    kirmizi.bottom >= sari.top &&
+    kirmizi.top <= sari.bottom &&
+    rock.style.backgroundColor == "red"
+    &&
+    paper.style.backgroundColor == "yellow"
+
+  ) {
+    rock.style.backgroundColor = "yellow";
+  }
+ 
+  //karşılaştığında paper mavi ise rock kırmızı ise = rockı kırmızı yap
+  if (
+    kirmizi.right >= sari.left &&
+    kirmizi.left <= sari.right &&
+    kirmizi.bottom >= sari.top &&
+    kirmizi.top <= sari.bottom && 
+    paper.style.backgroundColor == "blue" &&
+    rock.style.backgroundColor == "red"
+  ) {
+    paper.style.backgroundColor = "red";
+  }
+ 
+  //karşılaştığında rock sarı ise paper mavi ise = rackı mavi yap
+  if (
+    kirmizi.right >= sari.left &&
+    kirmizi.left <= sari.right &&
+    kirmizi.bottom >= sari.top &&
+    kirmizi.top <= sari.bottom && 
+    rock.style.backgroundColor == "yellow" &&
+    paper.style.backgroundColor == "blue"
+  ) {
+    rock.style.backgroundColor = "blue";
+  }
+
 
   if (
-    //krımzızı sarı olacak
-    red.left < yellow.right &&
-    red.right > yellow.left &&
-    red.top < yellow.bottom &&
-    red.bottom > yellow.top
+    kirmizi.right >= mavi.left &&
+    kirmizi.left <= mavi.right &&
+    kirmizi.bottom >= mavi.top &&
+    kirmizi.top <= mavi.bottom && 
+    rock.style.backgroundColor == "yellow" &&
+    scissors.style.backgroundColor == "blue"
   ) {
-    rock.style.backgroundColor = 'yellow';
+    rock.style.backgroundColor = "blue";
   }
 
   if (
-    //sarı mavi oalcak
-    yellow.left < blue.right &&
-    yellow.right > blue.left &&
-    yellow.top < blue.bottom &&
-    yellow.bottom > blue.top
+    kirmizi.right >= sari.left &&
+    kirmizi.left <= sari.right &&
+    kirmizi.bottom >= sari.top &&
+    kirmizi.top <= sari.bottom && 
+    rock.style.backgroundColor == "blue" &&
+    paper.style.backgroundColor == "yellow"
   ) {
-    paper.style.backgroundColor = 'blue';
+    paper.style.backgroundColor = "blue";
   }
 
+  
+  if (
+    mavi.right >= sari.left &&
+    mavi.left <= sari.right &&
+    mavi.bottom >= sari.top &&
+    mavi.top <= sari.bottom && 
+    scissors.style.backgroundColor == "blue" &&
+    paper.style.backgroundColor == "yellow"
+  ) {
+    paper.style.backgroundColor = "blue";
+  }
 
   if (
-    //mavi krımızı olacak
-    blue.left < red.right &&
-    blue.right > red.left &&
-    blue.top < red.bottom &&
-    blue.bottom > red.top
+    mavi.right >= sari.left &&
+    mavi.left <= sari.right &&
+    mavi.bottom >= sari.top &&
+    mavi.top <= sari.bottom && 
+    scissors.style.backgroundColor == "red" &&
+    paper.style.backgroundColor == "blue"
   ) {
-    scissors.style.backgroundColor = 'red';
+    paper.style.backgroundColor = "red";
+  }
+  
+  if (
+    kirmizi.right >= mavi.left &&
+    kirmizi.left <= mavi.right &&
+    kirmizi.bottom >= mavi.top &&
+    kirmizi.top <= mavi.bottom && 
+    rock.style.backgroundColor == "red" &&
+    scissors.style.backgroundColor == "blue"
+  ) {
+    scissors.style.backgroundColor = "red";
   }
 
+/*
+  if (
+    // sarı maviye
+    // makas > kağıt
+    sari.right >= mavi.left &&
+    sari.left <= mavi.right &&
+    sari.bottom >= mavi.top &&
+    sari.top <= mavi.bottom
+  ) {
+    paper.style.backgroundColor = "blue";
+  }
+
+  //mavi kırmızıya
+  // taş > makas
+  if (
+    mavi.right >= kirmizi.left &&
+    mavi.left <= kirmizi.right &&
+    mavi.bottom >= kirmizi.top &&
+    mavi.top <= kirmizi.bottom
+  ) {
+    scissors.style.backgroundColor = "red";
+  }
+*/
 
 }
+
 
 startBtn.addEventListener("click", () => {
   if (!r.move) {
@@ -93,12 +179,8 @@ startBtn.addEventListener("click", () => {
     r.move = true;
     p.move = true;
 
-    function update() {
-      kontrolEt(); // Her zaman renkleri kontrol eder
-      requestAnimationFrame(update);
-    }
 
-    update(); // İşlem döngüsünü başlatır
+
   } else {
     cancelAnimationFrame(r.ani);
     cancelAnimationFrame(p.ani);
@@ -124,10 +206,9 @@ let moveRock = () => {
   rock.style.top = `${r.y}px`;
 
   if (r.move) {
-    kontrolEt();
-
     r.ani = requestAnimationFrame(moveRock);
   }
+  kontrolEt()
 };
 
 
@@ -147,12 +228,13 @@ let moveScissors = () => {
   scissors.style.top = `${s.y}px`;
 
   if (p.move) {
-    kontrolEt();
-
     p.ani = requestAnimationFrame(moveScissors);
   }
+  kontrolEt()
 };
 
+
+// RANGE degil RENGE göre karşılatrıma yapsın.
 
 
 let movePaper = () => {
@@ -170,9 +252,8 @@ let movePaper = () => {
   paper.style.top = `${p.y}px`;
 
   if (p.move) {
-    kontrolEt()
-
     p.ani = requestAnimationFrame(movePaper);
   }
+  kontrolEt()
 };
 
