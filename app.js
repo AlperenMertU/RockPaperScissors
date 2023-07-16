@@ -5,8 +5,11 @@ let rock = document.getElementById("rock");
 let paper = document.getElementById("paper");
 let scissors = document.getElementById("scissors");
 
+let rockSrc = rock.src
+let scissorsSrc = scissors.src
+ console.log(rockSrc);
 const r = { x: 330, y: 250, w: 40, h: 40, dx: 3, dy: 3, ani: {}, speed: 1, move: false };
-const s = { x: 50, y: 40, w: 40, h: 40, dx: 3, dy: 3, ani: {}, speed: 1, move: false };
+const s = { x: 250, y: 40, w: 40, h: 40, dx: 3, dy: 3, ani: {}, speed: 1, move: false };
 const p = { x: 120, y: 25, w: 40, h: 40, dx: 3, dy: 3, ani: {}, speed: 1, move: false };
 
 box.appendChild(rock)
@@ -15,24 +18,20 @@ box.appendChild(paper)
 
 rock.style.left = `44px`
 rock.style.top = `44px`
-rock.style.backgroundColor = "red"
 rock.style.width = `${25}px`
 rock.style.height = `${25}px`
-rock.style.borderRadius = "50%"
+
 
 scissors.style.left = `454px`
 scissors.style.top = `44px`
-scissors.style.backgroundColor = "blue"
 scissors.style.width = `${25}px`
 scissors.style.height = `${25}px`
-scissors.style.borderRadius = "50%"
 
 paper.style.left = `122px`
 paper.style.top = `44px`
-paper.style.backgroundColor = "yellow"
 paper.style.width = `${25}px`
 paper.style.height = `${25}px`
-paper.style.borderRadius = "50%"
+
 
 /*
 mavi - taş 
@@ -54,12 +53,14 @@ function kontrolEt() {
     kirmizi.left <= sari.right &&
     kirmizi.bottom >= sari.top &&
     kirmizi.top <= sari.bottom &&
-    rock.style.backgroundColor == "red"
-    &&
-    paper.style.backgroundColor == "yellow"
+    paper.src === "http://127.0.0.1:5500/assets/paper.png" &&
+    rock.src === "http://127.0.0.1:5500/assets/rock.png" 
 
-  ) {
-    rock.style.backgroundColor = "yellow";
+    //değdikleri zaman resim değişiyyor benim serc kotrolünü yapmam lazım
+   
+
+  ) {   
+     rock.src = "/assets/paper.png"
   }
  
   //karşılaştığında paper mavi ise rock kırmızı ise = rockı kırmızı yap
@@ -68,10 +69,10 @@ function kontrolEt() {
     kirmizi.left <= sari.right &&
     kirmizi.bottom >= sari.top &&
     kirmizi.top <= sari.bottom && 
-    paper.style.backgroundColor == "blue" &&
-    rock.style.backgroundColor == "red"
+    paper.src == "http://127.0.0.1:5500/assets/scissors" &&
+    rock.src == "http://127.0.0.1:5500/assets/rock.png"
   ) {
-    paper.style.backgroundColor = "red";
+    paper.src = "http://127.0.0.1:5500/assets/rock.png";
   }
  
   //karşılaştığında rock sarı ise paper mavi ise = rackı mavi yap
@@ -80,10 +81,10 @@ function kontrolEt() {
     kirmizi.left <= sari.right &&
     kirmizi.bottom >= sari.top &&
     kirmizi.top <= sari.bottom && 
-    rock.style.backgroundColor == "yellow" &&
-    paper.style.backgroundColor == "blue"
+    rock.src == "http://127.0.0.1:5500/assets/paper.png" &&
+    paper.src == "http://127.0.0.1:5500/assets/scissors.png"
   ) {
-    rock.style.backgroundColor = "blue";
+    rock.src = "http://127.0.0.1:5500/assets/scissors.png";
   }
 
 
@@ -92,10 +93,10 @@ function kontrolEt() {
     kirmizi.left <= mavi.right &&
     kirmizi.bottom >= mavi.top &&
     kirmizi.top <= mavi.bottom && 
-    rock.style.backgroundColor == "yellow" &&
-    scissors.style.backgroundColor == "blue"
+    rock.src == "http://127.0.0.1:5500/assets/paper.png" &&
+    scissors.src == "http://127.0.0.1:5500/assets/scissors.png"
   ) {
-    rock.style.backgroundColor = "blue";
+    rock.src = "http://127.0.0.1:5500/assets/scissors.png";
   }
 
   if (
@@ -103,33 +104,36 @@ function kontrolEt() {
     kirmizi.left <= sari.right &&
     kirmizi.bottom >= sari.top &&
     kirmizi.top <= sari.bottom && 
-    rock.style.backgroundColor == "blue" &&
-    paper.style.backgroundColor == "yellow"
+    rock.src == "http://127.0.0.1:5500/assets/scissors.png" &&
+    paper.src == "http://127.0.0.1:5500/assets/paper.png"
   ) {
-    paper.style.backgroundColor = "blue";
+    paper.src = "http://127.0.0.1:5500/assets/scissors.png";
   }
-
+/////
   
-  if (
-    mavi.right >= sari.left &&
-    mavi.left <= sari.right &&
-    mavi.bottom >= sari.top &&
-    mavi.top <= sari.bottom && 
-    scissors.style.backgroundColor == "blue" &&
-    paper.style.backgroundColor == "yellow"
-  ) {
-    paper.style.backgroundColor = "blue";
-  }
 
   if (
     mavi.right >= sari.left &&
     mavi.left <= sari.right &&
     mavi.bottom >= sari.top &&
     mavi.top <= sari.bottom && 
-    scissors.style.backgroundColor == "red" &&
-    paper.style.backgroundColor == "blue"
+    scissors.src == "http://127.0.0.1:5500/assets/scissors.png" &&
+    paper.src == "http://127.0.0.1:5500/assets/paper.png"
   ) {
-    paper.style.backgroundColor = "red";
+    paper.src = "http://127.0.0.1:5500/assets/scissors.png";
+  }
+
+
+  ////
+  if (
+    mavi.right >= sari.left &&
+    mavi.left <= sari.right &&
+    mavi.bottom >= sari.top &&
+    mavi.top <= sari.bottom && 
+    scissors.src == "http://127.0.0.1:5500/assets/rock.png" &&
+    paper.src == "http://127.0.0.1:5500/assets/scissors.png"
+  ) {
+    paper.src = "http://127.0.0.1:5500/assets/rock.png";
   }
   
   if (
@@ -137,10 +141,10 @@ function kontrolEt() {
     kirmizi.left <= mavi.right &&
     kirmizi.bottom >= mavi.top &&
     kirmizi.top <= mavi.bottom && 
-    rock.style.backgroundColor == "red" &&
-    scissors.style.backgroundColor == "blue"
+    rock.src == "http://127.0.0.1:5500/assets/rock.png" &&
+    scissors.src == "http://127.0.0.1:5500/assets/scissors.png"
   ) {
-    scissors.style.backgroundColor = "red";
+    scissors.src = "http://127.0.0.1:5500/assets/rock.png";
   }
 
 /*
