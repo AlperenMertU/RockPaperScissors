@@ -15,19 +15,4 @@ body {
   height: 385px;
   width: 590px;
   background-color: aqua;
-}
-.container .box #rock {
-  position: absolute;
-  padding: 0;
-  margin: 0;
-}
-.container .box #scissors {
-  position: absolute;
-  padding: 0;
-  margin: 0;
-}
-.container .box #paper {
-  position: absolute;
-  padding: 0;
-  margin: 0;
 }/*# sourceMappingURL=main.css.map */
