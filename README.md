@@ -1,6 +1,6 @@
 # Rock, Paper, Scissors Simulation.
 
-Programım Taş, Kağı Makas oyunu kurallarına göre ekranda rastgele gezinen divlerin, karşılaştıkları zaman Taş Kağıt Makas oyunu kurallarına göre davranmalarını esas alır.
+Programım, Taş Kağıt Makas oyunu kurallarına göre ekranda rastgele gezinen divlerin, karşılaştıkları zaman Taş Kağıt Makas oyunu kurallarına göre davranmalarını esas alır.
 Çalışma mantığı budur.
 <br/><br/>
 Vanilla Js ile yazılmış olup oldukça az CSS ve HTML yazılmaya gayret edilmiştir.
