@@ -3,7 +3,7 @@
 Programım, Taş Kağıt Makas oyunu kurallarına göre ekranda rastgele gezinen divlerin, karşılaştıkları zaman Taş Kağıt Makas oyunu kurallarına göre davranmalarını esas alır.
 Çalışma mantığı budur.
 <br/><br/>
-Vanilla Js ile yazılmış olup oldukça az CSS ve HTML yazılmaya gayret edilmiştir.
+Vanilla Js ile yazılmıştır CSS ve HTML Kullanılmıştır.
 <br/><br/>
 ## Used Techs
 ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)&nbsp;
